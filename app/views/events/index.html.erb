@@ -1,0 +1,15 @@
+<h1>Расписание мероприятий академического хора НИЯУ МИФИ<h1>
+<% if @events.any? %>
+  <% @events.each do |event| %>
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <h2> <%= event.title %> </h2>
+        <p> Тип: <%= event.event_type %> </p>
+        <p> Дата: <%= event.event_date %> </p>
+        <p> Время: <%= event.start_time %> </p>
+        <p> Место: <%= event.location %> </p>
+        <p> Описание: <%= event.description %> </p>
+    </div>
+  <% end %>
+<% else %>
+  <p> Список мероприятий пуст</p>
+<% end %>
