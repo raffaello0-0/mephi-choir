@@ -1,0 +1,14 @@
+<div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <h2> <%= @event.title %> </h2>
+        <p> Тип: <%= @event.event_type %> </p>
+        <p> Дата: <%= @event.event_date %> </p>
+        <p> Время: <%= @event.start_time %> </p>
+        <p> Место: <%= @event.location %> </p>
+        <p> Описание: <%= @event.description %> </p>
+</div>
+
+<div>
+  <%= link_to "Редактировать", edit_event_path(@event) %>
+  <%= button_to "Удалить", @event, method: :delete, data: {confirm: "Вы уверены, что хотите удалить мероприятие?"} %>
+  <%= link_to "К списку мероприятий", events_path %>
+</div>
