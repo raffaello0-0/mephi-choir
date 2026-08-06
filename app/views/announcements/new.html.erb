@@ -1,0 +1,27 @@
+<h1> Новое объявление </h1>
+
+<%= form_with model: @announcement do |form| %>
+  <% if @announcement.errors.any?  %>
+    <h2> Возникли ошибки при отправке формы </h2>
+    <ul>
+      <% @announcement.errors.full_messages.each do |m| %>
+        <li> <%= m %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+  <%= form.label :title, "Название" %>
+  <%= form.text_field :title %>
+
+  <%= form.label :content, "Содержание" %>
+  <%= form.text_area :content %>
+
+  <div> 
+  <%= form.submit "Сохранить" %>
+  </div>
+<%end%>
+
+<div>
+  <%= link_to "К списку объявлений", announcements_path %>
+</div>
