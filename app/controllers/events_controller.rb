@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     end
     def show
         @event = Event.find(params[:id])
-    end 
+    end
     def new
         @event = Event.new()
     end
@@ -12,8 +12,8 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         if @event.save
             redirect_to @event
-        else  
-            render :new
+        else
+            render :new, status: :unprocessable_entity
         end
     end
     def edit
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
         if @event.update(event_params)
             redirect_to @event
         else
-            render :edit
+            render :edit, status: :unprocessable_entity
         end
     end
     def destroy
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
         @event.destroy
         redirect_to events_path
     end
-    
+
 
     private
     def event_params
