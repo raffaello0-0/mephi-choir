@@ -16,7 +16,7 @@ class AnnouncementsController < ApplicationController
     if @announcement.save
       redirect_to @announcement
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class AnnouncementsController < ApplicationController
     if @announcement.update(announcement_params)
       redirect_to @announcement
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
