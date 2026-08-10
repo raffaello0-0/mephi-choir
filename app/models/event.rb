@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+    # TODO возможно нужно добавить валидацию на дату (назначать события только на будущее)
     validates :event_type, inclusion: { in: [ "competition", "concert", "repetition" ] }
     validates :title, :event_type, :event_date, :start_time, :location,  presence: true
     validates :title, length: { maximum: 128 }
