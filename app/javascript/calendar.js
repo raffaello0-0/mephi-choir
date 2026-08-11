@@ -136,5 +136,22 @@ function nextMonth() {
     alert('Неверный формат даты');
   }
 
+
+
+
+
+
+
+
+
+
+
+  const addEventBtn = document.querySelector(".add-event-btn");
+  const hiddenAddEvent = document.querySelector(".hidden-add-event");
+  addEventBtn.addEventListener("click", openCloseEvent);
+  function openCloseEvent(){
+    hiddenAddEvent.classList.toggle("hidden-text");
+  }
+
 });
 

@@ -131,6 +131,7 @@ body{
   cursor: pointer;
   font-size: 3rem;
   margin-top: 60px;
+  color: rgb(50, 54, 62);
 
 }
 
@@ -140,8 +141,9 @@ body{
 }
 .calendar .date{
   margin-top: 60px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
+  color: rgb(50, 54, 62);
 }
 .calendar .weekdays {
   width: 100%;
@@ -150,7 +152,7 @@ body{
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 800;
   text-transform: capitalize;
   margin-top: 30px;
@@ -163,6 +165,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgb(50, 54, 62);
 }
 
 .calendar .days {
@@ -179,16 +182,19 @@ body{
 .calendar .days .day {
   width: 14.28%;
   height: 90px;
+  font-weight: 800;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--main-color);
-  border: 1px solid #f5f5f5;
+  border: 1px solid #e0dfdf;
 }
 .calendar .day:not(.prev-date, .next-date):hover{
   color:#fff;
   background-color: var(--main-color);
+
 }
 .calendar .days .prev-date,
 .calendar .days .next-date{
@@ -196,7 +202,7 @@ body{
 }
 .calendar .days .active{
   position: relative;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #fff;
   background-color:var(--main-color);
 }
@@ -210,7 +216,8 @@ body{
   box-shadow: 0 0 10px 2px var(--main-color);
 }
 .calendar .days .today{
-  font-size: 2rem;
+  font-size: 2.5rem;
+  box-shadow: inset 0 0 10px var(--main-color);
 }
 .calendar .days .event{
   position: relative;
@@ -292,7 +299,7 @@ body{
   height: 50px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20%;
   align-items:center;
   justify-content: space-between;
   padding: 0 40px;
@@ -302,7 +309,107 @@ body{
   text-transform: capitalize;
 }
 .today-date .event-day{
-  font-size: 1rem;
-  font-weight: 400;
-  color: #878895;
+  font-size: 2rem;
+  font-weight: 1000;
 }
+.today-date .event-date{
+  font-size: 1.5rem;
+  font-weight: 1000;
+
+}
+.events{
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+}
+.events .event{
+  position: relative;width: 95%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 20px 0 50px;
+  color: #fff;
+  background: linear-gradient(90deg, rgba(138, 159, 255, 0.245), transparent);
+}
+.events .event:nth-child(even){
+  background: transparent;
+}
+.events .event:hover{
+  background: linear-gradient(90deg, var(--main-color), transparent);
+}
+.events .event .title{
+  pointer-events: none;
+  display: grid;
+  gap: 20px;
+  padding-right: 50%;
+}
+.events .event .title .note{
+  font-size: 2rem;
+  font-weight: 600;
+  grid-column: 1;
+  grid-row: 1;
+
+}
+
+.events .event .title .event-title{
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 8%;
+  font-weight: 1000;
+  font-size: 1.3rem;
+}
+.add-event{
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  display: flex;
+  flex-direction: row;
+
+}
+.add-event-btn{
+  /* background-color: var(--main-color); */
+  background-color: rgb(20, 36, 81);
+  color:  white;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: inset 0 0 10px white;
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  /* color: rgb(50, 54, 62); */
+  /*box-shadow: inset 0 0 10px rgb(249, 250, 251); */
+  cursor: pointer;
+  text-align: center;
+}
+.hidden-add-event{
+  /* color: rgb(50, 54, 62); */
+  box-shadow: inset 0 0 10px white;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 50px;
+  width: 0;
+  /* background-color: var(--main-color); */
+  border: 3px solid white;
+  font-size: 20px;
+  /*box-shadow: inset 0 0 10px rgb(249, 250, 251); */
+  cursor: pointer;
+  margin-right: -20px;
+  font-weight: 800;
+  text-align: center;
+  padding-top: 3%;
+  border-radius: 30px 0 0 30px;
+  transition: width 0.5s ease;
+}
+.hidden-text{
+  width: 330px;
+}
+
+
