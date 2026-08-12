@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const todayBtn = document.querySelector(".today-btn");
   const dateInput = document.querySelector(".date-input");
 
+
+  let selectedDate = null;
+  let eventDates;
+  try {
+    eventDates = JSON.parse(calendar.dataset.eventDates);
+  } catch(e){
+    console.error('некорректный JSON', e);
+    eventDates = [];
+  }
+  console.log(eventDates);
+
   let today = new Date();
   let activeDay;
   let month = today.getMonth();
@@ -67,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
       days += `<div class="day next-date">${j}</div>`;
     }
     daysContainer.innerHTML = days;
+    highlightEventDays();
   }
 
   initCalendar();
@@ -144,14 +156,51 @@ function nextMonth() {
 
 
 
-
-
+  const eventDay = document.querySelector(".event-day");
+  const eventDate = document.querySelector(".event-date");
+  const eventsContainer = document.querySelector(".events");
+  const addEvent = document.querySelector(".add-event");
   const addEventBtn = document.querySelector(".add-event-btn");
   const hiddenAddEvent = document.querySelector(".hidden-add-event");
-  addEventBtn.addEventListener("click", openCloseEvent);
-  function openCloseEvent(){
-    hiddenAddEvent.classList.toggle("hidden-text");
-  }
 
+  addEventBtn.addEventListener("mouseover", openEvent);
+  addEventBtn.addEventListener("mouseout", closeEvent);
+  function openEvent(){
+    hiddenAddEvent.classList.add("hidden-text");}
+  function closeEvent(){
+    hiddenAddEvent.classList.remove("hidden-text");}
+
+
+
+  highlightEventDays();
+
+  function highlightEventDays(){
+    console.log('Функция вызвана!');
+    console.log('Найдено дней:', document.querySelectorAll(".day").length);
+    document.querySelectorAll(".day").forEach(dayElement =>{
+      const dayNumber = Number(dayElement.textContent);
+      const isPrevDate = dayElement.classList.contains("prev-date");
+      const isNextDate = dayElement.classList.contains("next-date");
+      let dayMonth = month;
+      let dayYear = year;
+      if (isPrevDate){
+        dayMonth--;
+        if (dayMonth < 0){
+          dayMonth = 11;
+          dayYear--;
+        }
+      }else if (isNextDate){
+        dayMonth++;
+        if (dayMonth > 11){
+          dayMonth = 0;
+          dayYear++;
+        }
+      }
+      const dateStr = `${dayYear}-${String(dayMonth + 1).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
+      if (eventDates.includes(dateStr)){
+        dayElement.classList.add("has-event");
+      }
+    });
+  }
 });
 
