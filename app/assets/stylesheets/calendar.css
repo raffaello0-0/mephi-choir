@@ -12,7 +12,8 @@ body{
 }
 .container {
   position: relative;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   min-height: 850px;
   margin: 100px auto 40px;
   padding: 5px;

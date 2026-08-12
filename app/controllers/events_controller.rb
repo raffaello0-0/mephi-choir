@@ -6,7 +6,7 @@ class EventsController < ApplicationController
         @event = Event.find(params[:id])
     end
     def new
-        @event = Event.new()
+        @event = Event.new(event_date: params[:event_date])
     end
     def create
         @event = Event.new(event_params)
@@ -33,6 +33,10 @@ class EventsController < ApplicationController
         redirect_to events_path
     end
 
+    def day_events
+      @events = Event.where(event_date: params[:date]).order(start_time: :asc)
+      render json: @events.select(:id, :title, :start_time, :location)
+    end
 
     private
     def event_params

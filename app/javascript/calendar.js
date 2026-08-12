@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const calendar = document.querySelector(".calendar");
+  if(!calendar){
+    return;
+  }
   const date = document.querySelector(".date");
   const daysContainer = document.querySelector(".days");
   const prev = document.querySelector(".prev");
@@ -79,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     daysContainer.innerHTML = days;
     highlightEventDays();
+    showSelectedDay();
   }
 
   initCalendar();
@@ -89,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     month = 11;
     year--;
   }
+  selectedDate = null;
   initCalendar();
 }
 
@@ -98,6 +103,7 @@ function nextMonth() {
     month = 0;
     year++;
   }
+  selectedDate = null;
   initCalendar();
   }
   prev.addEventListener("click", prevMonth);
@@ -162,6 +168,29 @@ function nextMonth() {
   const addEvent = document.querySelector(".add-event");
   const addEventBtn = document.querySelector(".add-event-btn");
   const hiddenAddEvent = document.querySelector(".hidden-add-event");
+  const eventMonths = [
+    "Января",
+    "Февраля",
+    "Марта",
+    "Апреля",
+    "Мая",
+    "Июня",
+    "Июля",
+    "Августа",
+    "Сентября",
+    "Октября",
+    "Ноября",
+    "Декабря"
+  ];
+  const eventWeekdays = [
+    "Пн",
+    "Вт",
+    "Ср",
+    "Чт",
+    "Пт",
+    "Сб",
+    "Вс"
+  ]
 
   addEventBtn.addEventListener("mouseover", openEvent);
   addEventBtn.addEventListener("mouseout", closeEvent);
@@ -171,12 +200,7 @@ function nextMonth() {
     hiddenAddEvent.classList.remove("hidden-text");}
 
 
-
-  highlightEventDays();
-
   function highlightEventDays(){
-    console.log('Функция вызвана!');
-    console.log('Найдено дней:', document.querySelectorAll(".day").length);
     document.querySelectorAll(".day").forEach(dayElement =>{
       const dayNumber = Number(dayElement.textContent);
       const isPrevDate = dayElement.classList.contains("prev-date");
@@ -202,5 +226,76 @@ function nextMonth() {
       }
     });
   }
+  function showSelectedDay(){
+    document.querySelectorAll(".day").forEach (dayElement =>{
+      dayElement.addEventListener('click', function(){
+        const dayNumber = Number(this.textContent);
+        const isPrevDate = this.classList.contains("prev-date");
+        const isNextDate = this.classList.contains("next-date");
+        let dayMonth = month;
+        let dayYear = year;
+
+        if (isPrevDate){
+          dayMonth--;
+          if(dayMonth < 0){
+            dayMonth = 11;
+            dayYear--; 
+          }
+        }else if(isNextDate){
+          dayMonth++;
+          if(dayMonth > 11){
+            dayMonth = 0;
+            dayYear++;
+          }
+        }
+        selectedDate = `${dayYear}-${String(dayMonth + 1).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
+        console.log(selectedDate);
+        updateRight(selectedDate);
+        document.querySelectorAll(".day").forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  }
+  
+  async function updateRight(dateStr){
+    const dateItem = new Date(dateStr);
+    eventDay.textContent = eventWeekdays[dateItem.getDay()];
+    eventDate.textContent = `${dateItem.getDate()} ${eventMonths[dateItem.getMonth()]} ${dateItem.getFullYear()}`;
+
+    
+    try{
+      const response = await fetch(`/events/day_events?date=${dateStr}`);
+      const events = await response.json();
+      if (events.length === 0){
+        eventsContainer.innerHTML = '<p>В этот день нет запланированных мероприятий</p>';
+      }else{
+        let html = '';
+        events.forEach(event =>{
+          html += `
+          <div class="event">
+            <div class="title">
+              <div class="note">&#9837;</div>
+              <h3 class="event-title">${event.title}</h3>
+           </div>
+           <p>${event.start_time} - ${event.location}</p>
+          </div>
+          `;
+        });
+        eventsContainer.innerHTML = html;
+      }
+    }catch(e){
+      console.error("Ошибка загрузки событий", e);
+      eventsContainer.innerHTML = "<p>Ошибка загрузки</p>";
+    }
+  }
+
+  addEventBtn.addEventListener('click', function(){
+    if(selectedDate){
+      window.location.href=`/events/new?event_date=${selectedDate}`;
+      console.log(1);
+    }else{
+    window.location.href="/events/new";
+  }
+  });
 });
 
