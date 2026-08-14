@@ -183,13 +183,13 @@ function nextMonth() {
     "Декабря"
   ];
   const eventWeekdays = [
+    "Вс",
     "Пн",
     "Вт",
     "Ср",
     "Чт",
     "Пт",
-    "Сб",
-    "Вс"
+    "Сб"
   ]
 
   addEventBtn.addEventListener("mouseover", openEvent);

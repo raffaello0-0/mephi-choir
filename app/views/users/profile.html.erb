@@ -1,0 +1,7 @@
+<h1>Личный кабинет</h1>
+<% if user_signed_in? %>
+  <p>Добро пожаловать, <%= current_user.email %></p>
+  <%= button_to "Выйти", destroy_user_session_path, method: :delete%>
+<% else %>
+  <%= button_to "Войти", new_user_session_path%> или <%= button_to "Зарегистрироваться", new_user_registration_path%>
+<% end %>
