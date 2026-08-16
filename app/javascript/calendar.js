@@ -82,7 +82,6 @@ document.addEventListener('turbo:load', function () {
     }
     daysContainer.innerHTML = days;
     highlightEventDays();
-    showSelectedDay();
   }
 
   initCalendar();
@@ -226,37 +225,38 @@ function nextMonth() {
       }
     });
   }
-  function showSelectedDay(){
-    document.querySelectorAll(".day").forEach (dayElement =>{
-      dayElement.addEventListener('click', function(){
-        const dayNumber = Number(this.textContent);
-        const isPrevDate = this.classList.contains("prev-date");
-        const isNextDate = this.classList.contains("next-date");
-        let dayMonth = month;
-        let dayYear = year;
 
-        if (isPrevDate){
-          dayMonth--;
-          if(dayMonth < 0){
-            dayMonth = 11;
-            dayYear--; 
-          }
-        }else if(isNextDate){
-          dayMonth++;
-          if(dayMonth > 11){
-            dayMonth = 0;
-            dayYear++;
-          }
-        }
-        selectedDate = `${dayYear}-${String(dayMonth + 1).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
-        console.log(selectedDate);
-        updateRight(selectedDate);
-        document.querySelectorAll(".day").forEach(item => item.classList.remove("active"));
-        this.classList.add("active");
-      });
-    });
-  }
-  
+  daysContainer.addEventListener('click', function(e) {
+    const dayElement = e.target.closest(".day");
+    if(!dayElement){
+      return;
+    }
+    const dayNumber = Number(dayElement.textContent);
+    const isPrevDate = dayElement.classList.contains("prev-date");
+    const isNextDate = dayElement.classList.contains("next-date");
+    let dayMonth = month;
+    let dayYear = year;
+
+    if (isPrevDate){
+      dayMonth--;
+      if(dayMonth < 0){
+        dayMonth = 11;
+        dayYear--; 
+      }
+    }else if(isNextDate){
+      dayMonth++;
+      if(dayMonth > 11){
+        dayMonth = 0;
+        dayYear++;
+      }
+    }
+    selectedDate = `${dayYear}-${String(dayMonth + 1).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
+    console.log(selectedDate);
+    updateRight(selectedDate);
+    document.querySelectorAll(".day").forEach(item => item.classList.remove("active"));
+    this.classList.add("active");
+  });
+
   async function updateRight(dateStr){
     const dateItem = new Date(dateStr);
     eventDay.textContent = eventWeekdays[dateItem.getDay()];
