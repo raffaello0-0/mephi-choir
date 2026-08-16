@@ -8,7 +8,6 @@
 </div>
 
 <div>
-  <%= link_to "Редактировать", edit_event_path(@event) %>
-  <%= button_to "Удалить", @event, method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить мероприятие?"} %>
   <%= link_to "К списку мероприятий", events_path %>
+  <%= link_to "В личный кабинет", user_profile_path%>
 </div>

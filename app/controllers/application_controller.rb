@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(b)
     request.referrer || root_path
   end
+
+  private
+  def admin_only
+    unless current_user.admin?
+      redirect_to root_path, alert: "Действие может быть выполнено только админом"
+    end
+  end
 end

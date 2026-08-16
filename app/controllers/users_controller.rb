@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   def profile
     if current_user.admin?
       @my_events = Event.all.order(event_date: :asc, start_time: :asc)
+      @my_announcements = Announcement.all.order(created_at: :desc)
     else
       @my_events = current_user.events.order(event_date: :asc, start_time: :asc)
+      @my_announcements = []
     end
   end
 
@@ -25,11 +27,7 @@ class UsersController < ApplicationController
 
 
   private
-  def admin_only
-    unless current_user.admin?
-      redirect_to root_path, alert: "Действие может быть выполнено только админом"
-    end
-  end
+  
   def set_user
     @user = User.find(params[:id])
   end

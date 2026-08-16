@@ -1,5 +1,4 @@
 <h1>Объявления академического хора НИЯУ МИФИ</h1>
-<%= link_to "Создать объявление", new_announcement_path %>
 <% if @announcements.any? %>
   <% @announcements.each do |announcement| %>
     <div class="announsement_card" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
@@ -7,8 +6,6 @@
         <p><%= simple_format(announcement.content)%></p>
         <p><%= announcement.created_at.strftime("%Y-%d-%m %H:%M:%S") %></p>
         <%= link_to "Показать", announcement_path(announcement.id) %>
-        <%= link_to "Редактировать", edit_announcement_path(announcement.id) %>
-        <%= button_to "Удалить", announcement_path(announcement.id), method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить объявление?"} %>
     </div>
   <% end %>
 <% else %>

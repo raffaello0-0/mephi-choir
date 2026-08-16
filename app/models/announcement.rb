@@ -1,4 +1,5 @@
 class Announcement < ApplicationRecord
+    belongs_to :user
     validates :title, :content, presence: true
     validates :title, length: { maximum: 128 }
     before_save :stripping_names

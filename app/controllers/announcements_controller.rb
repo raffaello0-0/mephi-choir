@@ -1,11 +1,12 @@
 class AnnouncementsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :admin_only, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_announcement, only: [:show, :edit, :update, :destroy]
   def index
     @announcements = Announcement.all.order(created_at: :desc)
   end
 
   def show
-    @announcement = Announcement.find(params[:id])
   end
 
   def new
@@ -13,7 +14,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def create
-    @announcement = Announcement.new(announcement_params)
+    @announcement = current_user.announcements.build(announcement_params)
     if @announcement.save
       redirect_to @announcement
     else
@@ -22,11 +23,9 @@ class AnnouncementsController < ApplicationController
   end
 
   def edit
-    @announcement = Announcement.find(params[:id])
   end
 
   def update
-    @announcement = Announcement.find(params[:id])
     if @announcement.update(announcement_params)
       redirect_to @announcement
     else
@@ -35,7 +34,6 @@ class AnnouncementsController < ApplicationController
   end
 
   def destroy
-    @announcement = Announcement.find(params[:id])
     @announcement.destroy
     redirect_to announcements_path
   end
@@ -43,5 +41,8 @@ class AnnouncementsController < ApplicationController
   private
   def announcement_params
     params.require(:announcement).permit(:title, :content)
+  end
+  def set_announcement
+    @announcement = Announcement.find(params[:id])
   end
 end

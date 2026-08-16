@@ -5,7 +5,6 @@
 </div>
 
 <div>
-  <%= link_to "Редактировать", edit_announcement_path(@announcement) %>
-  <%= button_to "Удалить", @announcement, method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить объявление?"} %>
   <%= link_to "К списку объявлений", announcements_path %>
+  <%= link_to "В личный кабинет", user_profile_path%>
 </div>

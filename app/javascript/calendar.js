@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('turbo:load', function () {
   const calendar = document.querySelector(".calendar");
   if(!calendar){
     return;

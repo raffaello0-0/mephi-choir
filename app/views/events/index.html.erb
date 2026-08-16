@@ -8,6 +8,7 @@
         <p> Время: <%= event.start_time.strftime("%H:%M") %> </p>
         <p> Место: <%= event.location %> </p>
         <p> Описание: <%= simple_format(event.description) %> </p>
+        <%= link_to "Показать", event_path(event.id) %>
     </div>
   <% end %>
 <% else %>
