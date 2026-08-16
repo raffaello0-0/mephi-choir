@@ -1,16 +1,18 @@
 class EventsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
+    before_action :authenticate_user!, except: [ :index, :show ]
+    before_action :set_event, only: [ :show, :edit, :update, :destroy ]
+    before_action :member_or_admin, only: [ :new, :create ]
+    before_action :owner_or_admin, only: [ :edit, :update, :destroy ]
     def index
         @events = Event.all
     end
     def show
-        @event = Event.find(params[:id])
     end
     def new
         @event = Event.new(event_date: params[:event_date])
     end
     def create
-        @event = Event.new(event_params)
+        @event = current_user.events.build(event_params)
         if @event.save
             redirect_to @event
         else
@@ -18,10 +20,8 @@ class EventsController < ApplicationController
         end
     end
     def edit
-        @event = Event.find(params[:id])
     end
     def update
-        @event = Event.find(params[:id])
         if @event.update(event_params)
             redirect_to @event
         else
@@ -29,7 +29,6 @@ class EventsController < ApplicationController
         end
     end
     def destroy
-        @event = Event.find(params[:id])
         @event.destroy
         redirect_to events_path
     end
@@ -42,5 +41,18 @@ class EventsController < ApplicationController
     private
     def event_params
         params.require(:event).permit(:title, :event_type, :event_date, :start_time, :location, :description)
+    end
+    def member_or_admin
+      unless current_user.can_manage_events?
+        redirect_to events_path, alert: "Действие может быть выполнено только админом или участником"
+      end
+    end
+    def owner_or_admin
+      unless @event.user == current_user || current_user.admin?
+        redirect_to events_path, alert: "Действие может быть выполнено только админом или создателем мероприятия"
+      end
+    end
+    def set_event
+      @event = Event.find(params[:id])
     end
 end

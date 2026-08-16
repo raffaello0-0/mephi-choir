@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_13_121321) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_14_152425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -30,6 +30,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_13_121321) do
     t.time "start_time", null: false
     t.string "title", limit: 128, null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
     t.check_constraint "event_type::text = ANY (ARRAY['competition'::character varying, 'concert'::character varying, 'repetition'::character varying]::text[])", name: "event_type_check"
   end
 
@@ -40,8 +42,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_13_121321) do
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
+    t.string "role", default: "pending", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "events", "users"
 end
