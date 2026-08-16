@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   root "pages#home"
   get "events/day_events", to: "events#day_events"
   get "/users", to: "users#index"
-  patch "/users/:id/check_user", to: "users#check_user", as: "check_user"
+  patch "/users/:id/make_member", to: "users#make_member", as: "make_member"
+  patch "/users/:id/make_admin", to: "users#make_admin", as: "make_admin"
   resources :events
   resources :announcements
 end

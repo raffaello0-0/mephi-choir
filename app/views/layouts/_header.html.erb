@@ -7,6 +7,9 @@
       <li class="navigation-link"> <%=link_to "Объявления", announcements_path%> </li>
       <li class="navigation-link"> <%=link_to "Мероприятия", events_path%> </li>
       <li class="navigation-link"> <%=link_to "Фотоальбом", "#"%> </li>
+      <% if current_user&.admin? %>
+        <li class="navigation-link"> <%= link_to "Список пользователей", users_path %> </li>
+      <% end%>
     </ul>
   </div>
 </header>

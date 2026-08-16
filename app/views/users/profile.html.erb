@@ -1,7 +1,36 @@
 <h1>Личный кабинет</h1>
 <% if user_signed_in? %>
-  <p>Добро пожаловать, <%= current_user.email %></p>
+  <p>Добро пожаловать, <%= current_user.email %> (<%= current_user.role %>)</p>
+  <% if current_user.pending? %>
+    <p>Ожидайте, пока админ рассмотрит вашу заявку</p>
+  <% else %>
+    <h2>Мои мероприятия</h2>
+    <%= link_to "Создать мероприятие", new_event_path %>
+    <% if @my_events.any?%>
+      <% @my_events.each do |event|%>
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+          <h2> <%= event.title %> </h2>
+          <p> Тип: <%= event.event_type %> </p>
+          <p> Дата: <%= event.event_date %> </p>
+          <p> Время: <%= event.start_time.strftime("%H:%M") %> </p>
+          <p> Место: <%= event.location %> </p>
+          <p> Описание: <%= simple_format(event.description) %> </p>
+          <%= link_to "Показать", event_path(event.id) %>
+          <%= link_to "Редактировать", edit_event_path(event.id) %>
+          <%= button_to "Удалить", event_path(event.id), method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить мероприятие?"} %>
+        </div>
+      <% end %>
+    <% else %>
+      <p> Список мероприятий пуст</p>
+    <% end %>
+  <% end %>
+
+  
+
+
+
   <%= button_to "Выйти", destroy_user_session_path, method: :delete%>
+  <%= button_to "Удалить аккаунт", user_registration_path, method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить аккаунт?"} %>
 <% else %>
   <%= button_to "Войти", new_user_session_path%> или <%= button_to "Зарегистрироваться", new_user_registration_path%>
 <% end %>

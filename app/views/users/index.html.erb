@@ -1,0 +1,13 @@
+<h1 class="users_list">Список пользователей</h1>
+<% @users.each do |user|%>
+  <div class="user_item">
+    <h3 class="user_name"><%= user.email %></h3>
+    <p class="<%= user.role %>"><%= user.role %></p>
+    <% unless (user.member? || user == current_user)%>
+      <%= button_to "Назначить участником", make_member_path(user), method: :patch%>
+    <% end %>
+    <% unless (user.admin? ||user == current_user)%>
+      <%= button_to "Назначить админом", make_admin_path(user), method: :patch%>
+    <% end %>
+  </div>
+<%end%>
