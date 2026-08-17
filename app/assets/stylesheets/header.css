@@ -1,0 +1,45 @@
+.site-header{
+  background-color: rgb(55, 67, 117);
+  padding: 2rem 3rem ;  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 3px solid rgb(3, 17, 76);
+  border-bottom: 0;
+}
+.header-name{
+  color: white;
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+}
+.header-img img {
+  height: 4.5rem;
+  width: auto;
+}
+
+.site-navigation{
+  display: flex;
+  border: 3px solid rgb(3, 17, 76);
+}
+.navigation-link{
+  flex: 1;
+  padding: 1rem 6rem;
+  border-right: 3px solid rgb(3, 17, 76);
+  background-color: rgb(55, 67, 117);
+  text-align: center;
+}
+.navigation-link a{
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+}
+.navigation-link:hover{
+  border: none;
+  box-shadow: inset 5px 5px 5px rgb(9, 11, 57);
+
+}
+#nav_link_no_border{
+  border: none;
+}
+

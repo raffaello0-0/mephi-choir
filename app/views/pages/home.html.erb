@@ -1,4 +1,6 @@
-<h1> Главная страница </h1>
+<div class="stars-container">
+  <%= image_tag "stars_background.png", alt: "Звездочки"%>
+</div>
 <div class="announcements">
   <h1>Недавние объявления </h1>
   <% if @recent_announcements.any? %>

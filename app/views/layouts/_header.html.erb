@@ -1,15 +1,18 @@
-<header class="site-header">
-  <div class="header-container">
-    <h1><%= link_to "НИЯУ МИФИ Академический хор", "#"%> </h1>
-    <ul class="site-navigation">
-      <li class="navigation-link"> <%=link_to "Главная", root_path%> </li>
-      <li class="navigation-link"> <%=link_to "Личный кабинет", user_profile_path%> </li>
-      <li class="navigation-link"> <%=link_to "Объявления", announcements_path%> </li>
-      <li class="navigation-link"> <%=link_to "Мероприятия", events_path%> </li>
-      <li class="navigation-link"> <%=link_to "Фотоальбом", "#"%> </li>
-      <% if current_user&.admin? %>
-        <li class="navigation-link"> <%= link_to "Список пользователей", users_path %> </li>
-      <% end%>
-    </ul>
+  <div class="site-header">
+    <div class="header-img"><%= image_tag "Notes_logo_new.png", alt: "Логотип"%></div>
+    <div class="header-img"><%= image_tag "Notes_logo_new.png", alt: "Логотип"%></div>
+    <h1 class="header-name">АКАДЕМИЧЕСКИЙ мужской хор МИФИ</h1>
+    <div class="header-img"><%= image_tag "Notes_logo_new.png", alt: "Логотип"%></div>
+    <div class="header-img"><%= image_tag "Notes_logo_new.png", alt: "Логотип"%></div>
+
   </div>
-</header>
+<div class="site-navigation">
+  <p class="navigation-link"> <%=link_to "Главная", root_path%> </p>
+  <p class="navigation-link"> <%=link_to "Профиль", user_profile_path%> </p>
+  <p class="navigation-link"> <%=link_to "Объявления", announcements_path%> </p>
+  <p class="navigation-link" id="nav_link_no_border"> <%=link_to "Мероприятия", events_path%> </p>
+  <% if current_user&.admin? %>
+    <p class="navigation-link"> <%= link_to "Список пользователей", users_path %> </p>
+  <% end%>
+</div>
+
