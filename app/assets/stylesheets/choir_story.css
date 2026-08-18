@@ -1,0 +1,17 @@
+.choir-story-container{
+  position: relative;
+  padding-top: -20rem;
+  background-color: rgb(193, 193, 195);
+  border-radius: 30% 30% 0 0;
+  height: 100rem;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.choir-story-container img {
+  width: 60rem;
+  height: 60rem;
+  padding: 5rem;
+}
