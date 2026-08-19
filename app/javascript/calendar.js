@@ -254,7 +254,7 @@ function nextMonth() {
     console.log(selectedDate);
     updateRight(selectedDate);
     document.querySelectorAll(".day").forEach(item => item.classList.remove("active"));
-    this.classList.add("active");
+    dayElement.classList.add("active");
   });
 
   async function updateRight(dateStr){
@@ -267,17 +267,16 @@ function nextMonth() {
       const response = await fetch(`/events/day_events?date=${dateStr}`);
       const events = await response.json();
       if (events.length === 0){
-        eventsContainer.innerHTML = '<p>В этот день нет запланированных мероприятий</p>';
+        eventsContainer.innerHTML = '<p class="calendar-no-events">В этот день нет запланированных мероприятий</p>';
       }else{
         let html = '';
         events.forEach(event =>{
           html += `
           <div class="event">
             <div class="title">
-              <div class="note">&#9837;</div>
-              <h3 class="event-title">${event.title}</h3>
-           </div>
-           <p>${event.start_time} - ${event.location}</p>
+              <h3 class="calendar-event-title">${event.title}</h3>
+            </div>
+            <div class="calendar-event-time-location">${event.start_time.slice(11, 16)} - ${event.location}</div>
           </div>
           `;
         });
