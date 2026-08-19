@@ -1,17 +1,46 @@
+@font-face {
+  font-family: 'CyrillicGothSHA';
+  src: url('CyrillicGothSHA_1.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 .choir-story-container{
   position: relative;
-  padding-top: -20rem;
+  margin-top: -12rem;
   background-color: rgb(193, 193, 195);
-  border-radius: 30% 30% 0 0;
-  height: 100rem;
+  border-radius: 20% 20% 0 0;
+  height: 65rem;
   width: 100%;
   z-index: 2;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  /* justify-content: space-between; */
 }
 .choir-story-container img {
-  width: 60rem;
-  height: 60rem;
-  padding: 5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45rem;
+  height: 45rem;
+  padding: 10rem;
+}
+.choir-story-wrapper{
+  margin: 0rem 3rem 3rem 3rem;
+  padding: 0rem 0 5rem 3rem;
+  max-width: 60%;
+}
+.choir-story-header{
+  margin: 3rem;
+  font-family: 'CyrillicGothSHA';
+  color: black;
+  font-size: 6rem;
+  text-align: center;
+  /* margin: 0;
+  padding: 0; */
+
+}
+.choir-story{
+  font-family: 'CyrillicGothSHA';
+  font-size: 1.5rem;
+  color: black;
+  text-align: justify;
 }

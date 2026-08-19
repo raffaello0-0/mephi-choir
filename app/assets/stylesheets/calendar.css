@@ -2,18 +2,18 @@
   /*--main-color: rgb(172, 134, 255);*/
   --main-color: rgb(138, 160, 255);
 }
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body{
-  min-height: 100hv;
+  min-height: 100vh;
   background-color: #111111;
-}
+} */
 .container {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   width: 100%;
   max-width: 1200px;
   min-height: 850px;
@@ -26,6 +26,14 @@ body{
   display: flex;
   flex-direction: column;
 }
+.calendar-frame img{
+  margin: 5rem 10rem 20rem 0;
+  height: 70rem;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
 .container-content{
   display: flex;
   flex-direction:row;
