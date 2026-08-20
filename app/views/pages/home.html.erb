@@ -14,10 +14,7 @@
 <div class="choir-story-container">
   <div class="choir-story-wrapper">
     <h2 class="choir-story-header">История хора</h2>
-    <p class="choir-story">Мужской хор существует в МИФИ уже более 60 лет. Он был создан в 1950-е годы, во времена расцвета студенческой художественной самодетельности, когда в МИФИ и других вузах работало великое множество самых разнообразных и нередко довольно популярных творческих коллективов.</p>
-
-    <p class="choir-story">Среди коллективов МИФИ были и факультетские хоры, однако их деятельность не получила особенного развития, и поэтому осенью 1956 года, в рамках подготовки к предстоящему Всемирному фестивалю молодежи и студентов, руководство и профсоюз МИФИ решили возродить институтское хоровое движение на более серьезной основе.</p>
-
+  
     <p class="choir-story">Мужской хор существует в МИФИ уже более 60 лет. Он был создан в 1950-е годы, во времена расцвета студенческой художественной самодетельности, когда в МИФИ и других вузах работало великое множество самых разнообразных и нередко довольно популярных творческих коллективов.</p>
 
     <p class="choir-story">Среди коллективов МИФИ были и факультетские хоры, однако их деятельность не получила особенного развития, и поэтому осенью 1956 года, в рамках подготовки к предстоящему Всемирному фестивалю молодежи и студентов, руководство и профсоюз МИФИ решили возродить институтское хоровое движение на более серьезной основе.</p>
@@ -35,61 +32,73 @@
 
 
 
-
-<div class="container">
+<div class="calendar-block">
   <div class="calendar-frame">
-    <%= image_tag "frame.png", alt: "Рамка"%>
+    <%= image_tag "search.png", alt: "Рамка"%>
   </div>
-  <div class="container-content">
-    <div class="left">
-      <div class="calendar" data-event-dates="<%= @event_dates.to_json %>">
-        <div class="month">
-          <%# <i class="fa fa-angle-left prev"></i> %>
-          <div class="prev"> &laquo; </div>
-          <div class="date"></div>
-          <%# <i class="fa fa-angle-right next"></i> %>
-          <div class="next"> &raquo; </div>
-    
-        </div>
-        <div class="weekdays">
-          <div>Пн</div>
-          <div>Вт</div>
-          <div>Ср</div>
-          <div>Чт</div>
-          <div>Пт</div>
-          <div>Сб</div>
-          <div>Вс</div>
-        </div>
-        <div class="days">
 
-        </div>
-        <div class="goto-today">
-          <div class="goto">
-            <input type="text" placeholder="мм.гггг" class="date-input">
-            <button class="goto-btn">Перейти</button>
+  <div class="calendar-row"> 
+    <div class="calendar-arrow">
+      <%= image_tag "arrow.png", alt: "Стрелка"%>
+    </div>
+
+    <div class="container">
+
+      <div class="container-content">
+        <div class="left">
+          <div class="calendar" data-event-dates="<%= @event_dates.to_json %>">
+            <div class="month">
+              <%# <i class="fa fa-angle-left prev"></i> %>
+              <div class="prev"> &laquo; </div>
+              <div class="date"></div>
+              <%# <i class="fa fa-angle-right next"></i> %>
+              <div class="next"> &raquo; </div>
+        
+            </div>
+            <div class="weekdays">
+              <div>Пн</div>
+              <div>Вт</div>
+              <div>Ср</div>
+              <div>Чт</div>
+              <div>Пт</div>
+              <div>Сб</div>
+              <div>Вс</div>
+            </div>
+            <div class="days">
+
+            </div>
+            <div class="goto-today">
+              <div class="goto">
+                <input type="text" placeholder="мм.гггг" class="date-input">
+                <button class="goto-btn">Перейти</button>
+              </div>
+              <button class="today-btn">Сегодня</button>
+            </div>
           </div>
-          <button class="today-btn">Сегодня</button>
+        </div>
+        <div class="right">
+          <div class="today-date">
+            <div class="event-day"></div>
+            <div class="event-date"></div>
+          </div>
+          <div class="events">
+
+          </div>
+          <div class="add-event">
+            <div class="hidden-add-event">Создать мероприятие</div>
+            <button class="add-event-btn">
+              <p class="plus">+</p>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="right">
-      <div class="today-date">
-        <div class="event-day"></div>
-        <div class="event-date"></div>
-      </div>
-      <div class="events">
 
-      </div>
-      <div class="add-event">
-        <div class="hidden-add-event">Создать мероприятие</div>
-        <button class="add-event-btn">
-          <p class="plus">+</p>
-        </button>
-      </div>
+    <div class="calendar-arrow-copy">
+      <%= image_tag "arrow(copy).png", alt: "Микрофон"%>
     </div>
   </div>
 </div>
-
 
 
 

@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'CyrillicGothSHA';
-  src: url('CyrillicGothSHA_1.otf') format('opentype');
+  font-family: 'Gabriela';
+  src: url('Gabriela-Regular.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 .choir-story-container{
   position: relative;
   margin-top: -12rem;
-  background-color: rgb(193, 193, 195);
+  background-color: rgb(220, 220, 221);
   border-radius: 20% 20% 0 0;
   height: 65rem;
   width: 100%;
@@ -30,7 +30,7 @@
 }
 .choir-story-header{
   margin: 3rem;
-  font-family: 'CyrillicGothSHA';
+  font-family: 'Gabriela';
   color: black;
   font-size: 6rem;
   text-align: center;
@@ -39,7 +39,7 @@
 
 }
 .choir-story{
-  font-family: 'CyrillicGothSHA';
+  font-family: 'Gabriela';
   font-size: 1.5rem;
   color: black;
   text-align: justify;
