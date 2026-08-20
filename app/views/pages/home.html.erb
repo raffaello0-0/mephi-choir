@@ -105,22 +105,33 @@
 
 
 <div class="announcements">
-  <h1>Недавние объявления </h1>
-  <% if @recent_announcements.any? %>
-    <% @recent_announcements.each do |announcement| %>
-      <div class="announcement_card" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-          <h2> <%= announcement.title %> </h2>
-          <p><%= simple_format(announcement.content)%></p>
-          <p><%= announcement.created_at.strftime("%Y-%d-%m %H:%M:%S") %></p>
-      </div>
-    <% end %>
-    <%= link_to "Посмотреть все объявления", announcements_path%>
-  <% else %>
-    <p> Список объявлений пуст</p>
-  <% end %>
+  <h1 class="announcement-header">Недавние объявления </h1>
   
-  <div>
-      <img src="#" alt="ТУТ КАРТИНКА!!! Хор НИЯУ МИФИ">
+  <div class="clips">
+    <div class="clip">
+        <%= image_tag "clip.png", alt: "Микрофон"%>
+    </div>
+      <div class="clip">
+        <%= image_tag "clip.png", alt: "Микрофон"%>
+    </div>
+  </div>
+  <div class="megaphone">
+    <%= image_tag "megaphone2.png", alt: "Мегафон"%>
+  </div>
+  <div class="announcement-container">
+    <% if @recent_announcements.any? %>
+      <% @recent_announcements.each do |announcement| %>
+        <div class="announcement-card">
+            <h2 class="announcement-title"> <%= announcement.title %> </h2>
+            <div class="announcement-content"><%= simple_format(announcement.content)%></div>
+            <div class="announcement-created-at"><%= announcement.created_at.strftime("%d.%m.%Y %H:%M:%S") %></div>
+            <div class="announcement-show"> <%= link_to "Показать", announcement_path(announcement.id)%></div>
+        </div>
+      <% end %>
+      <div class="announcement-index"><%= link_to "Посмотреть все объявления", announcements_path%></div>
+    <% else %>
+      <div class="no-announcements"> Список объявлений пуст</div>
+    <% end %>
   </div>
 </div>
 
