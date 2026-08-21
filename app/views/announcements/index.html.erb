@@ -1,13 +1,29 @@
-<h1>Объявления академического хора НИЯУ МИФИ</h1>
-<% if @announcements.any? %>
-  <% @announcements.each do |announcement| %>
-    <div class="announsement_card" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-        <h2> <%= announcement.title %> </h2>
-        <p><%= simple_format(announcement.content)%></p>
-        <p><%= announcement.created_at.strftime("%Y-%d-%m %H:%M:%S") %></p>
-        <%= link_to "Показать", announcement_path(announcement.id) %>
-    </div>
+<h1 class="index-announcement-header">
+  <span class="orange">Объявления</span>
+  академического хора НИЯУ МИФИ
+</h1>
+<div class="index-clips">
+  <div class="index-clip">
+      <%= image_tag "clip.png", alt: "Скрепка1"%>
+  </div>
+    <div class="clip">
+      <%= image_tag "clip.png", alt: "Скрепка2"%>
+  </div>
+</div>
+<div class="index-megaphone">
+  <%= image_tag "megaphone2.png", alt: "Мегафон"%>
+</div>
+<div class="index-announcement-container">
+  <% if @announcements.any? %>
+    <% @announcements.each do |announcement| %>
+      <div class="index-announcement-card">
+        <h2 class="index-announcement-title"> <%= announcement.title %> </h2>
+        <div class="index-announcement-content"><%= simple_format(announcement.content)%></div>
+        <div class="index-announcement-created-at"><%= announcement.created_at.strftime("%Y-%d-%m %H:%M:%S") %></div>
+        <div class="index-announcement-show"><%= link_to "Показать", announcement_path(announcement.id) %></div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="index-no-announcements"> Список объявлений пуст</div>
   <% end %>
-<% else %>
-  <p> Список объявлений пуст</p>
-<% end %>
+</div>

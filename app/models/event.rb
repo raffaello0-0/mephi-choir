@@ -17,6 +17,13 @@ class Event < ApplicationRecord
         record.errors.add(attr, "time should be between 08:00 and 22:00")
       end
     end
+    def event_type_ru
+      case event_type
+      when "concert" then "концерт"
+      when "repetition" then "репетиция"
+      else "конкурс"
+      end
+    end
     protected
     def stripping_names
       self.title = self.title.strip

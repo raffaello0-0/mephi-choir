@@ -10,12 +10,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 3px solid rgb(3, 17, 76);
+  border: 3px solid rgb(0, 0, 0);
   border-bottom: 0;
 }
 .header-name{
   font-family: 'Gabriela';
-  color: rgb(28, 29, 68);
+  color: rgb(0, 0, 0);
   font-size: 3rem;
   font-weight: 800;
   text-align: center;
@@ -26,25 +26,27 @@
 }
 
 .site-navigation{
+  position: relative;
+  z-index: 300;
   display: flex;
-  border: 3px solid rgb(3, 17, 76);
+  border: 3px solid rgb(0, 0, 0);
 }
 .navigation-link{
   flex: 1;
   padding: 0.5rem 6rem;
-  border-right: 3px solid rgb(3, 17, 76);
+  border-right: 3px solid rgb(0, 0, 0);
   background-color: rgb(214, 214, 215);
   text-align: center;
 }
 .navigation-link a{
   font-family: 'Gabriela';
   text-decoration: none;
-  color: rgb(28, 29, 68);
+  color: rgb(0, 0, 0);
   font-size: 1.5rem;
 }
 .navigation-link:hover{
   border: none;
-  box-shadow: inset 5px 5px 5px rgb(9, 11, 57);
+  box-shadow: inset 5px 5px 5px rgb(0, 0, 0);
 }
 #nav_link_no_border{
   border: none;

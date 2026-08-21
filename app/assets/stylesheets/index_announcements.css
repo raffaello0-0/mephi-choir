@@ -4,58 +4,51 @@
   font-weight: normal;
   font-style: normal;
 }
-.announcements{
-  position: relative;
-  padding: 5rem 3rem;
-  background-color: rgb(220, 220, 221);
-  height: 65rem;
-  width: 100%;
-  z-index: 200;
-  color: black;
-}
-.announcement-header{
+.index-announcement-header{
   text-align: center;
   font-family: 'Gabriela';
   font-size: 3.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   margin-top: 2rem;
+  color: rgb(0, 0, 0);
 }
-.clips{
+.index-announcement-header .orange{
+  border-bottom: 8px solid rgb(255, 119, 7);
+}
+.index-clips{
   position: absolute;
   display: flex;
   flex-direction: row;
   margin-top: -0.5rem;
   margin-left: 8.3rem;
 }
-.clip img{
+.index-clip img{
   width: 1.5rem;
   height: auto;
 }
-.megaphone{
+.index-megaphone{
   position: absolute;
   display: flex;
   justify-content: flex-end;
   right: 0;
-  margin-right: 12rem;
-  margin-top: -11rem;
-
+  margin-right: 7rem;
+  margin-top: -7rem;
 }
-.megaphone img{
-  width: 12rem;
+.index-megaphone img{
+  width: 8rem;
   height: auto;
 }
-.announcement-container{
+.index-announcement-container{
   font-family: 'Gabriela';
   padding: 3rem;
-  margin: 0 3rem;
+  margin: 0 6rem;
   border: 5px dashed black;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
-.announcement-card{
+.index-announcement-card{
   border: 4px solid rgb(0, 0, 0);
   box-shadow: 5px 5px 7px rgb(0, 0, 0);
   border-radius: 30px;
@@ -63,65 +56,46 @@
   margin: 1rem;
   width: 70rem;
 }
-.announcement-title{
+.index-announcement-title{
   text-align: center;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
-  background-color: rgb(33, 49, 93);
+  background-color: rgb(197, 90, 3);
   border-radius: 20px 20px 0 0;
   color: white;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
-.announcement-content{
+.index-announcement-content{
   padding: 0 3rem;
   text-align: justify;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: black;
 }
-.announcement-created-at{
+.index-announcement-created-at{
   margin-right: 1rem;
   font-size: 0.7rem;
   text-align: right;
   color: black;
 }
-.announcement-show{
+.index-announcement-show{
   padding: 0rem 0.5rem;
-  border: 4px solid rgb(33, 49, 93);
+  border: 4px solid rgb(255, 119, 7);
   background-color:rgb(220, 220, 221);
   border-radius: 4px;
   width: 5rem;
 }
-.announcement-show a{
+.index-announcement-show a{
   text-decoration: none;
   color: rgb(0, 0, 0);
   font-size: 0.8rem;
 }
-.announcement-show:hover{
-  background-color: rgb(33, 49, 93);
+.index-announcement-show:hover{
+  background-color: rgb(255, 119, 7);
 }
-.announcement-show:hover a{
+.index-announcement-show:hover a{
   color: rgb(220, 220, 221);
 }
-.announcement-index{
-  margin-top: 1.2rem;
-  padding: 0.1rem 0.3rem;
-  text-align: center;
-  border: 4px solid rgb(33, 49, 93);
-  background-color:rgb(220, 220, 221);
-  border-radius: 6px;
-  width: 20rem;
-}
-.announcement-index a{
-  text-decoration: none;
-  font-size: 1.3rem;
-  color: rgb(0, 0, 0);
-}
-.announcement-index:hover{
-  background-color: rgb(33, 49, 93);
-}.announcement-index:hover a{
-  color: rgb(220, 220, 221);
-}
-.no-announcements{
+.index-no-announcements{
   text-align: center;
   border-radius: 30px;
   padding: 0.5rem;
