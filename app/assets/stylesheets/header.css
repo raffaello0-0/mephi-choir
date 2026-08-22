@@ -33,22 +33,29 @@
 }
 .navigation-link{
   flex: 1;
-  padding: 0.5rem 6rem;
+  display: flex;
+  padding: 1rem 5rem;
   border-right: 3px solid rgb(0, 0, 0);
   background-color: rgb(214, 214, 215);
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .navigation-link a{
   font-family: 'Gabriela';
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 .navigation-link:hover{
-  border: none;
-  box-shadow: inset 5px 5px 5px rgb(0, 0, 0);
+  padding: 0 5rem;
 }
-#nav_link_no_border{
+.navigation-link:hover a{
+  border: none;
+  /* box-shadow: inset 5px 5px 5px rgb(0, 0, 0); */
+  font-size: 1.7rem;
+}
+.navigation-link:last-child{
   border: none;
 }
 

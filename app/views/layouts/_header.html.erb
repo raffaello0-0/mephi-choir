@@ -7,9 +7,9 @@
   <p class="navigation-link"> <%=link_to "Главная", root_path%> </p>
   <p class="navigation-link"> <%=link_to "Профиль", user_profile_path%> </p>
   <p class="navigation-link"> <%=link_to "Объявления", announcements_path%> </p>
-  <p class="navigation-link" id="nav_link_no_border"> <%=link_to "Мероприятия", events_path%> </p>
+  <p class="navigation-link"> <%=link_to "Мероприятия", events_path%> </p>
   <% if current_user&.admin? %>
-    <p class="navigation-link"> <%= link_to "Список пользователей", users_path %> </p>
+    <p class="navigation-link"> <%= link_to "Пользователи", users_path %> </p>
   <% end%>
 </div>
 

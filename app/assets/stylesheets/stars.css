@@ -13,7 +13,6 @@
   justify-content: center;
   /* position: sticky; */
   top: 0;
-  z-index: 1;
   gap: 6rem;
 }
 .stars-container img{
@@ -60,6 +59,7 @@
   height: 3rem;
   width: 14rem;
   margin-bottom: 10rem;
+  position: relative;
 }
 .stars-block-3 p{
   text-align: center;
@@ -68,7 +68,10 @@
   color: rgb(19, 22, 47);
   font-family: 'Gabriela';
 }
+.stars-block-3 p a{
+  text-decoration: none;
+  color: rgb(19, 22, 47);
+}
 .stars-block-3:hover{
-  cursor: pointer;
   box-shadow: inset 0 0 8px black;
 }
