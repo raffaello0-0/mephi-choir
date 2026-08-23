@@ -1,0 +1,226 @@
+@font-face {
+  font-family: 'Gabriela';
+  src: url('Gabriela-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.profile{
+  display: flex;
+  flex-direction: column;
+}
+.profile-container{
+  display: flex;
+  flex-direction: row;
+}
+.profile-card{
+  margin: 2rem 7rem;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 6px solid #051535;
+  box-shadow: inset 0 0 5px #051535;
+  width: 25rem;
+  height: 22rem;
+  text-align: center;
+  font-family: 'Gabriela', serif;
+  background-color: rgb(255, 255, 255);
+}
+.profile-img img{
+  width: 12rem;
+}
+.profile-user{
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  background-color: #051535;
+  color: white;
+  /* box-shadow: inset 0 0 5px #fefefe; */
+}
+.profile-name{
+  font-size: 1.2rem;
+  font-weight: 700;
+} 
+.profile-content{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile .pending{
+  font-family: 'Gabriela', serif;
+  font-size: 2rem;
+}
+.profile .event-header{
+  font-family: 'Gabriela', serif;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.profile-event-create{
+  padding: 0.5rem;
+  margin: 2rem 0;
+  border: 4px solid rgb(175, 5, 5);
+  background-color:rgb(255, 255, 255);
+  border-radius: 4px;
+  width: 18rem;
+  text-align: center;
+}
+.profile-event-create a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.3rem;
+}
+.profile-event-create:hover{
+  background-color: rgb(175, 5, 5);
+}
+.profile-event-create:hover a{
+  color: rgb(220, 220, 221);
+}
+
+.profile-event-card{
+  font-family: 'Gabriela', serif;
+  border: 4px solid rgb(0, 0, 0);
+  box-shadow: 5px 5px 7px rgb(0, 0, 0);
+  border-radius: 30px;
+  padding: 1rem;
+  margin: 1rem;
+  width: 65rem;
+}
+.profile-event-title{
+  text-align: center;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(175, 5, 5);
+  border-radius: 20px 20px 0 0;
+  color: white;
+  font-size: 1.5rem;
+}
+.profile-event-type{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 0.8rem;
+  color: black;
+}
+.profile-event-date{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 0.8rem;
+  color: black;
+}
+.profile-event-time{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 0.8rem;
+  color: black;
+}
+.profile-event-location{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 0.8rem;
+  color: black;
+}
+.profile-event-description{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 1.3rem;
+  color: black;
+}
+.profile-event-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+.profile-event-show{
+  padding: 0rem 0.5rem;
+  margin: 0.3rem 0;
+  border: 4px solid rgb(175, 5, 5);
+  background-color:rgb(255, 255, 255);
+  border-radius: 4px;
+  width: 5rem;
+  text-align: center;
+}
+.profile-event-show a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 0.8rem;
+}
+.profile-event-show:hover{
+  background-color: rgb(175, 5, 5);
+}
+.profile-event-show:hover a{
+  color: rgb(220, 220, 221);
+}
+
+.profile-event-edit{
+  padding: 0rem 0.5rem;
+  margin: 0.3rem 0;
+  border: 4px solid rgb(175, 5, 5);
+  background-color:rgb(255, 255, 255);
+  border-radius: 4px;
+  width: 7.5rem;
+  text-align: center;
+}
+.profile-event-edit a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 0.8rem;
+}
+.profile-event-edit:hover{
+  background-color: rgb(175, 5, 5);
+}
+.profile-event-edit:hover a{
+  color: rgb(220, 220, 221);
+}
+
+.profile-event-destroy button{
+  text-decoration: none;
+  border: none;
+  background-color:rgb(255, 255, 255); 
+  color: rgb(0, 0, 0);
+  font-size: 0.8rem;
+  padding: 0.1rem 0.3rem;
+  margin: 0.3rem 0;
+  border: 4px solid rgb(175, 5, 5);
+  border-radius: 4px;
+  width: 5rem;
+  text-align: center;
+  font-family: 'Gabriela', serif;
+}
+.profile-event-destroy:hover button{
+  color: rgb(220, 220, 221);
+    background-color: rgb(175, 5, 5);
+}
+.profile-no-events{
+  text-align: center;
+  border-radius: 30px;
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 30rem;
+  font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile .announcement-header{
+  font-family: 'Gabriela', serif;
+  font-size: 4rem;
+  text-align: center;
+}

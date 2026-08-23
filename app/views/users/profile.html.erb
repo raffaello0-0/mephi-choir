@@ -1,47 +1,70 @@
-<h1>Личный кабинет</h1>
-<% if user_signed_in? %>
-  <p>Добро пожаловать, <%= current_user.email %> (<%= current_user.role %>)</p>
-  <% if current_user.pending? %>
-    <p>Ожидайте, пока админ рассмотрит вашу заявку</p>
-  <% else %>
-    <h2>Мои мероприятия</h2>
-    <%= link_to "Создать мероприятие", new_event_path %>
-    <% if @my_events.any?%>
-      <% @my_events.each do |event|%>
-        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-          <h2> <%= event.title %> </h2>
-          <p> Тип: <%= event.event_type %> </p>
-          <p> Дата: <%= event.event_date %> </p>
-          <p> Время: <%= event.start_time.strftime("%H:%M") %> </p>
-          <p> Место: <%= event.location %> </p>
-          <p> Описание: <%= simple_format(event.description) %> </p>
-          <%= link_to "Показать", event_path(event.id) %>
-          <%= link_to "Редактировать", edit_event_path(event.id) %>
-          <%= button_to "Удалить", event_path(event.id), method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить мероприятие?"} %>
+<div class="profile">
+  <div class="profile-container">
+    <div class="profile-card">
+    <% if user_signed_in? %>
+      <div class="profile-img">
+        <%= image_tag "person.png", alt: "Человек" %>
+      </div>
+      <div class="profile-user">
+        <div class="profile-name"> <%= current_user.email %> </div>
+        <div>(<%= current_user.role %>)</div>
+      </div>
+    </div>
+
+    <div class="profile-content">
+      <% if current_user.pending? %>
+        <p class="pending">Ожидайте, пока админ рассмотрит вашу заявку</p>
+      <% else %>
+        <h2 class="event-header">Мои мероприятия</h2>
+
+        <div class="profile-event-create">
+          <%= link_to "Создать мероприятие", new_event_path %>
         </div>
+        <% if @my_events.any?%>
+          <% @my_events.each do |event|%>
+            <div class="profile-event-card">
+                <h2 class="profile-event-title"> <%= event.title %> </h2>
+                <div class="profile-event-type"> Тип: <%= event.event_type_ru %> </div>
+                <div class="profile-event-date"> Дата: <%= event.event_date.strftime('%d.%m.%Y') %> </div>
+                <div class="profile-event-time"> Время: <%= event.start_time.strftime("%H:%M") %> </div>
+                <div class="profile-event-location"> Место: <%= event.location %> </div>
+                <div class="profile-event-description"> <%= simple_format(event.description) %> </div>
+
+                <div class="profile-event-buttons">
+                  <div class="profile-event-show"><%= link_to "Показать", event_path(event.id) %></div>
+                  <div class="profile-event-edit"><%= link_to "Редактировать", edit_event_path(event.id) %></div>
+                  <div class="profile-event-destroy"><%= button_to "Удалить", event_path(event.id), method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить объявление?"} %></div>
+                </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="profile-no-events"> Список мероприятий пуст</div>
+        <% end %>
+
+        <h2 class="announcement-header">Мои объявления</h2>
+        <%= link_to "Создать объявление", new_announcement_path %>
+        <% if @my_announcements.any? %>
+          <% @my_announcements.each do |announcement| %>
+            <div class="announsement_card" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+              <h2> <%= announcement.title %> </h2>
+              <p><%= simple_format(announcement.content)%></p>
+              <p><%= announcement.created_at.strftime("%Y-%d-%m %H:%M:%S") %></p>
+              <%= link_to "Показать", announcement_path(announcement.id) %>
+              <%= link_to "Редактировать", edit_announcement_path(announcement.id) %>
+              <%= button_to "Удалить", announcement_path(announcement.id), method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить объявление?"} %>
+            </div>
+          <% end %>
+        <% else %>
+          <p> Список объявлений пуст</p>
+        <% end %>
       <% end %>
+    </div>
+  </div>
+  <div class="profile-buttons">
+      <%= button_to "Выйти", destroy_user_session_path, method: :delete%>
+      <%= button_to "Удалить аккаунт", user_registration_path, method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить аккаунт?"} %>
     <% else %>
-      <p> Список мероприятий пуст</p>
+      <%= button_to "Войти", new_user_session_path%> или <%= button_to "Зарегистрироваться", new_user_registration_path%>
     <% end %>
-    <h2>Мои объявления</h2>
-    <%= link_to "Создать объявление", new_announcement_path %>
-    <% if @my_announcements.any? %>
-      <% @my_announcements.each do |announcement| %>
-        <div class="announsement_card" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-          <h2> <%= announcement.title %> </h2>
-          <p><%= simple_format(announcement.content)%></p>
-          <p><%= announcement.created_at.strftime("%Y-%d-%m %H:%M:%S") %></p>
-          <%= link_to "Показать", announcement_path(announcement.id) %>
-          <%= link_to "Редактировать", edit_announcement_path(announcement.id) %>
-          <%= button_to "Удалить", announcement_path(announcement.id), method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить объявление?"} %>
-        </div>
-      <% end %>
-    <% else %>
-      <p> Список объявлений пуст</p>
-    <% end %>
-  <% end %>
-  <%= button_to "Выйти", destroy_user_session_path, method: :delete%>
-  <%= button_to "Удалить аккаунт", user_registration_path, method: :delete, data: {turbo_confirm: "Вы уверены, что хотите удалить аккаунт?"} %>
-<% else %>
-  <%= button_to "Войти", new_user_session_path%> или <%= button_to "Зарегистрироваться", new_user_registration_path%>
-<% end %>
+  </div>
+</div>
