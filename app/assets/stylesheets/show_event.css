@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Gabriela';
+  src: url('Gabriela-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.show-event-container{
+  font-family: 'Gabriela';
+  padding: 3rem;
+  margin: 0 6rem;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.show-event-card{
+  border: 4px solid rgb(0, 0, 0);
+  box-shadow: 5px 5px 7px rgb(0, 0, 0);
+  border-radius: 30px;
+  padding: 1rem;
+  margin: 1rem;
+  width: 70rem;
+}
+.show-event-title{
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(175, 5, 5);
+  border-radius: 20px 20px 0 0;
+  color: white;
+  font-size: 2rem;
+}
+.show-event-type{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 1rem;
+  color: black;
+}
+.show-event-date{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 1rem;
+  color: black;
+}
+.show-event-time{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 1rem;
+  color: black;
+}
+.show-event-location{
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 1rem;
+  color: black;
+}
+.show-event-description{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 3rem;
+  text-align: justify;
+  font-size: 1.5rem;
+  color: black;
+}

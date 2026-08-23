@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_action :authenticate_user!, except: [ :index, :show, :day_events]
+    before_action :authenticate_user!, except: [ :index, :show, :day_events ]
     before_action :set_event, only: [ :show, :edit, :update, :destroy ]
     before_action :member_or_admin, only: [ :new, :create ]
     before_action :owner_or_admin, only: [ :edit, :update, :destroy ]
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     end
     def destroy
         @event.destroy
-        redirect_to events_path
+        redirect_to user_profile_path
     end
 
     def day_events

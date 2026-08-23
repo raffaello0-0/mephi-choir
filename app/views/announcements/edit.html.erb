@@ -1,28 +1,29 @@
-<h1> Изменение объявления </h1>
-
 <%= form_with model: @announcement do |form| %>
   <% if @announcement.errors.any?  %>
-    <h2> Возникли ошибки при отправке формы </h2>
-    <ul>
-      <% @announcement.errors.full_messages.each do |m| %>
-        <li> <%= m %> </li>
-      <% end %>
-    </ul>
+    <div class="new-edit-announcement-errors">
+      <h2> Возникли ошибки при отправке формы </h2>
+      <ul>
+        <% @announcement.errors.full_messages.each do |m| %>
+          <li> <%= m %> </li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
+  <div class="new-edit-form">
+    <h1 class="new-edit-announcement-header"> Изменение объявления </h1>
+    <div class="new-edit-announcement-title">
+      <%= form.label :title, "Название (обязательно)" %>
+      <%= form.text_field :title %>
+    </div>
 
-  <%= form.label :title, "Название" %>
-  <%= form.text_field :title %>
+    <div class="new-edit-announcement-content">
+      <%= form.label :content, "Содержание (обязательно)" %>
+      <%= form.text_area :content %>
+    </div>
 
-  <%= form.label :content, "Содержание" %>
-  <%= form.text_area :content %>
-
-  <div> 
-  <%= form.submit "Сохранить" %>
+    <div class="new-edit-announcement-submit"> 
+      <%= form.submit "Сохранить" %>
+    </div>
   </div>
 <%end%>
-
-<div>
-  <%= link_to "К списку объявлений", announcements_path %>
-  <%= link_to "В личный кабинет", user_profile_path%>
-</div>

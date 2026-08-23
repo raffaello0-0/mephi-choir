@@ -1,7 +1,7 @@
 class AnnouncementsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :admin_only, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_announcement, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :admin_only, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :set_announcement, only: [ :show, :edit, :update, :destroy ]
   def index
     @announcements = Announcement.all.order(created_at: :desc)
   end
@@ -35,7 +35,7 @@ class AnnouncementsController < ApplicationController
 
   def destroy
     @announcement.destroy
-    redirect_to announcements_path
+    redirect_to user_profile_path
   end
 
   private

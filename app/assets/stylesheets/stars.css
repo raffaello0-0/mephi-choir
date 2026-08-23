@@ -53,25 +53,32 @@
   font-family: 'Gabriela';
 }
 .stars-block-3{
-  box-shadow: inset 0 0 3px rgba(0,0,0);
-  background-color: rgb(193, 193, 195);
+  background-color: rgb(19, 22, 47);
+  border: 4px solid rgb(193, 193, 195);
   border-radius: 20px;
   height: 3rem;
   width: 14rem;
   margin-bottom: 10rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .stars-block-3 p{
   text-align: center;
-  padding-top: 0.5rem;
   font-size: 1.5rem;
-  color: rgb(19, 22, 47);
+  color: rgb(193, 193, 195);
   font-family: 'Gabriela';
 }
 .stars-block-3 p a{
   text-decoration: none;
-  color: rgb(19, 22, 47);
+  color: rgb(193, 193, 195);
+  font-weight: 800;
 }
 .stars-block-3:hover{
-  box-shadow: inset 0 0 8px black;
+  background-color: rgb(193, 193, 195);
+  box-shadow: inset 0 0 3px rgba(0,0,0);
+}
+.stars-block-3:hover a{
+  color: rgb(19, 22, 47);
 }

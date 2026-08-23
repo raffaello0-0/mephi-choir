@@ -1,13 +1,12 @@
-<div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-        <h2> <%= @event.title %> </h2>
-        <p> Тип: <%= @event.event_type %> </p>
-        <p> Дата: <%= @event.event_date %> </p>
-        <p> Время: <%= @event.start_time.strftime("%H:%M")%> </p>
-        <p> Место: <%= @event.location %> </p>
-        <p> Описание: <%= simple_format(@event.description) %> </p>
-</div>
-
-<div>
-  <%= link_to "К списку мероприятий", events_path %>
-  <%= link_to "В личный кабинет", user_profile_path%>
+<div class="show-event-block">
+  <div class="show-event-container">
+    <div class="show-event-card">
+      <h2 class="show-event-title"> <%= @event.title %> </h2>
+      <div class="show-event-type"> Тип: <%= @event.event_type_ru %> </div>
+      <div class="show-event-date"> Дата: <%= @event.event_date %> </div>
+      <div class="show-event-time"> Время: <%= @event.start_time.strftime("%H:%M")%> </div>
+      <div class="show-event-location"> Место: <%= @event.location %> </div>
+      <div class="show-event-description"><%= simple_format(@event.description) %> </div>
+    </div>
+  </div>
 </div>

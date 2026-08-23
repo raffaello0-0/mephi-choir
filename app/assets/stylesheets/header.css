@@ -45,14 +45,13 @@
   font-family: 'Gabriela';
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 .navigation-link:hover{
   padding: 0 5rem;
 }
 .navigation-link:hover a{
   border: none;
-  /* box-shadow: inset 5px 5px 5px rgb(0, 0, 0); */
   font-size: 1.7rem;
 }
 .navigation-link:last-child{

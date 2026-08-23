@@ -1,10 +1,10 @@
-<div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-        <h2> <%= @announcement.title %> </h2>
-        <p><%= simple_format(@announcement.content)%></p>
-        <p><%= @announcement.created_at.strftime("%Y-%d-%m %H:%M:%S")  %></p>
+ <div class="show-announcement-block">
+  <div class="show-announcement-container">
+    <div class="show-announcement-card">
+      <h2 class="show-announcement-title"> <%= @announcement.title %> </h2>
+      <div class="show-announcement-content"><%= simple_format(@announcement.content)%></div>
+      <div class="show-announcement-created-at"><%= @announcement.created_at.strftime("%d.%m.%Y %H:%M:%S")  %></div>
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= link_to "К списку объявлений", announcements_path %>
-  <%= link_to "В личный кабинет", user_profile_path%>
-</div>

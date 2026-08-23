@@ -1,7 +1,44 @@
-<h1> Новое мероприятие </h1>
-<%= render "form" %>
+<%= form_with model: @event do |form| %>
+  <% if @event.errors.any?  %>
+    <div class="new-edit-event-errors">
+      <h2> Возникли ошибки при отправке формы </h2>
+      <ul>
+        <% @event.errors.full_messages.each do |m| %>
+          <li> <%= m %> </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<div>
-  <%= link_to "К списку мероприятий", events_path %>
-  <%= link_to "В личный кабинет", user_profile_path%>
-</div>
+  <div class="new-edit-form">
+    <h1 class="new-edit-event-header"> Новое мероприятие </h1>
+    <div class="new-edit-event-title">
+      <%= form.label :title, "Название (обязательно)" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="new-edit-event-type">
+      <%= form.label :event_type, "Тип мероприятия (обязательно)" %>
+      <%= form.select :event_type, [['Участие в конкурсе', 'competition'], ['Концерт', 'concert'], ['Репетиция', 'repetition']] %> 
+    </div>
+    <div class="new-edit-event-date">
+      <%= form.label :event_date, "Дата (обязательно)" %>
+      <%= form.date_field :event_date %>
+    </div>
+    <div class="new-edit-event-time">
+      <%= form.label :start_time, "Время начала (обязательно)" %>
+      <%= form.time_field :start_time %>
+    </div>
+    <div class="new-edit-event-location">
+      <%= form.label :location, "Место проведения (обязательно)" %>
+      <%= form.text_field :location %>
+    </div>
+    <div class="new-edit-event-description">
+      <%= form.label :description, "Описание" %>
+      <%= form.text_area :description %>
+    </div>
+    <div class="new-edit-event-submit"> 
+      <%= form.submit "Сохранить" %>
+    </div>
+  </div>
+<%end%>
