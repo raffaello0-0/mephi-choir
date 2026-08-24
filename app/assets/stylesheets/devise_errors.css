@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Gabriela';
+  src: url('Gabriela-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.devise-errors-errors{
+  width: 60rem;
+  height: auto;
+  font-family: 'Gabriela', serif;
+  margin: 2rem auto;
+  border: 4px dashed red;
+  padding: 0 2rem 1rem;
+}
+.devise-errors-error-header{
+  color: red;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.devise-errors-errors ul{
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.devise-errors-errors li{
+  padding: 0.2rem;
+  font-weight: 800;
+}
