@@ -1,0 +1,28 @@
+<div class="new-session-container">
+  <h2 class="new-session-header">Log in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="new-session-email">
+      <div><%= f.label :email %></div>
+      <div><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+    </div>
+
+    <div class="new-session-password">
+      <p><%= f.label :password %></p>
+      <div><%= f.password_field :password, autocomplete: "current-password" %></div>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="new-session-remember-me">
+        <div><%= f.check_box :remember_me %></div>
+        <p><%= f.label :remember_me %></p>
+      </div>
+    <% end %>
+
+    <div class="new-session-log-in">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

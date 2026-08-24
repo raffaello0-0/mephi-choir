@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'Gabriela';
+  src: url('Gabriela-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.new-registration-header{
+  text-align: center;
+  text-align: center;
+  font-family: 'Gabriela';
+  font-size: 2.5rem;
+  margin: 1rem;
+  background-color:rgb(33, 49, 93);
+  color: rgb(255, 255, 255);
+  border-radius: 20px 20px 0 0;
+}
+.new-registration-container{
+  border: 4px solid rgb(0, 0, 0);
+  background-color: white;
+  margin: 3rem auto;
+  width: 70rem;
+  height: auto;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.new-registration-email{
+  margin: 0.5rem;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+.new-registration-email label{
+  margin: 0 4rem 0.2rem;
+  font-size: 0.9rem;
+  color: rgb(44, 44, 44);
+  font-family: 'Gabriela', serif;
+}
+.new-registration-email input{
+  padding: 0.2rem 1rem;
+  margin: 0 3.5rem;
+  width: 60rem;
+  height: 3rem;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-size: 1rem;
+  background-color: white;
+  font-family: 'Gabriela', serif;
+}
+.new-registration-password{
+  margin: 0.5rem;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+.new-registration-password p{
+  margin: 0 4rem 0.2rem;
+  font-size: 0.9rem;
+  color: rgb(44, 44, 44);
+  font-family: 'Gabriela', serif;
+}
+.new-registration-password input{
+  padding: 0.2rem 1rem;
+  margin: 0 3.5rem;
+  width: 60rem;
+  height: 3rem;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-size: 1rem;
+  background-color: white;
+  font-family: 'Gabriela', serif;
+}
+
+.new-registration-sign-up{
+  padding:  0.8rem;
+  margin: 0rem auto;
+}
+.new-registration-sign-up input{
+  padding: 0.5rem 1rem;
+  border: 4px solid rgb(33, 49, 93);
+  background-color:rgb(255, 255, 255);
+  border-radius: 6px;
+  width: 10rem;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0.5rem;
+  font-family:'Gabriela', serif;
+}
+.new-registration-sign-up input:hover{
+  background-color: rgb(33, 49, 93);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.devise-link{
+  margin: 0 1.2rem 0.3rem;
+  border: 4px solid rgb(33, 49, 93);
+  background-color:rgb(33, 49, 93);
+  border-radius: 6px;
+  width: 5rem;
+  text-align: center;
+  font-family: 'Gabriela', serif;
+}
+.devise-link a{
+  text-decoration: none;
+  color: white;
+  font-size: 0.8rem;
+}
+.devise-link:hover{
+  background-color: white;
+  border: 4px solid rgb(33, 49, 93);
+}
+.devise-link:hover a{
+  color: rgb(33, 49, 93);
+}
