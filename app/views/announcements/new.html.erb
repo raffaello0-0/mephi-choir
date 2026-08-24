@@ -1,7 +1,7 @@
 <%= form_with model: @announcement do |form| %>
   <% if @announcement.errors.any?  %>
     <div class="new-edit-announcement-errors">
-      <h2> Возникли ошибки при отправке формы </h2>
+      <h2 class="new-edit-announcement-error-header"> Возникли ошибки при отправке формы </h2>
       <ul>
         <% @announcement.errors.full_messages.each do |m| %>
           <li> <%= m %> </li>

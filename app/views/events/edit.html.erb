@@ -1,14 +1,14 @@
-<%= form_with model: @event do |form| %>
-  <% if @event.errors.any?  %>
-    <div class="new-edit-event-errors">
-      <h2> Возникли ошибки при отправке формы </h2>
-      <ul>
-        <% @event.errors.full_messages.each do |m| %>
-          <li> <%= m %> </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form_with model: @event do |form| %>
+    <% if @event.errors.any?  %>
+      <div class="new-edit-event-errors">
+        <h2 class="new-edit-event-error-header"> Возникли ошибки при отправке формы </h2>
+        <ul>
+          <% @event.errors.full_messages.each do |m| %>
+            <li> <%= m %> </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
   <div class="new-edit-form">
     <h1 class="new-edit-event-header"> Изменение мероприятия </h1>
