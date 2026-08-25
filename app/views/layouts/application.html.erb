@@ -28,10 +28,16 @@
       <%= render 'layouts/header' %>
     </div>
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+      <div class="notice-container">
+        <div class="notice-header"> Success </div>
+          <p class="notice"><%= notice %></p>
+      </div>
     <% end %>
     <% if alert %>
-      <p class="alert"><%= alert %></p>
+      <div class="alert-container">
+        <div class="alert-header"> Warning</div>
+          <p class="alert"><%= alert %></p>
+      </div>
     <% end %>
     
     <%= yield %>

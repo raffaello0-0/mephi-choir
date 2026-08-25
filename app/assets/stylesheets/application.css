@@ -20,3 +20,52 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: black;
 }
+@font-face {
+  font-family: 'Gabriela';
+  src: url('Gabriela-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.alert-container{
+  width: 60rem;
+  height: auto;
+  font-family: 'Gabriela', serif;
+  margin: 2rem auto;
+  border: 4px dashed red;
+  padding: 0 2rem 1rem;
+}
+.alert-header{
+  color: red;
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.alert-container .alert{
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: 0.2rem;
+  font-weight: 800;
+}
+
+
+
+.notice-container{
+  width: 60rem;
+  height: auto;
+  font-family: 'Gabriela', serif;
+  margin: 2rem auto;
+  border: 4px dashed rgb(0, 203, 44);
+  padding: 0 2rem 1rem;
+}
+.notice-header{
+  color: rgb(0, 203, 44);
+  margin: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.notice-container .notice{
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: 0.2rem;
+  font-weight: 800;
+}

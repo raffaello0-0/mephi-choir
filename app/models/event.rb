@@ -12,9 +12,11 @@ class Event < ApplicationRecord
       end
     end
     validates_each :start_time do |record, attr, value|
-      sum_min = value.hour * 60 + value.min
-      unless (8 * 60..22 * 60).include?(sum_min)
-        record.errors.add(attr, "time should be between 08:00 and 22:00")
+      if value
+        sum_min = value.hour * 60 + value.min
+        unless (8 * 60..22 * 60).include?(sum_min)
+          record.errors.add(attr, "time should be between 08:00 and 22:00")
+        end
       end
     end
     def event_type_ru
