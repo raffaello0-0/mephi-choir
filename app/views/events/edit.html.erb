@@ -27,7 +27,7 @@
     </div>
     <div class="new-edit-event-time">
       <%= form.label :start_time, "Время начала (обязательно)" %>
-      <%= form.time_field :start_time, value: @event.start_time.strftime('%H:%M')%>
+      <%= form.time_field :start_time, value: @event.start_time.present? ? @event.start_time.strftime("%H:%M") : nil%>
     </div>
     <div class="new-edit-event-location">
       <%= form.label :location, "Место проведения (обязательно)" %>
