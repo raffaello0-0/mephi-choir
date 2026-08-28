@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   private
   def admin_only
     unless current_user.admin?
-      redirect_to root_path, alert: "Действие может быть выполнено только админом"
+      redirect_to root_path, alert: "Only admin can perform this action"
     end
   end
 end

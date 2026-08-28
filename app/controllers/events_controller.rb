@@ -44,12 +44,12 @@ class EventsController < ApplicationController
     end
     def member_or_admin
       unless current_user.can_manage_events?
-        redirect_to events_path, alert: "Действие может быть выполнено только админом или участником"
+        redirect_to events_path, alert: "Only admin or member can perform this action"
       end
     end
     def owner_or_admin
       unless @event.user == current_user || current_user.admin?
-        redirect_to events_path, alert: "Действие может быть выполнено только админом или создателем мероприятия"
+        redirect_to events_path, alert: "Only admin or owner can perform this action"
       end
     end
     def set_event

@@ -118,7 +118,6 @@ function nextMonth() {
     dateInput.value = dateInput.value.replace(/[^0-9.]/g, "");
     if(dateInput.value.length == 2){
       dateInput.value += ".";
-      console.log('. was added!');
     }
     if(e.inputType == "insertText"){
       if (dateInput.value.length == 3){
@@ -133,8 +132,6 @@ function nextMonth() {
     if(e.inputType == "deleteContentBackward") {
       if(dateInput.value.length == 3) {
         dateInput.value = dateInput.value.slice(0, 2);
-        console.log('. was deleted!');
-        console.log(dateInput.value.length);
       }
     }
   });
@@ -251,7 +248,6 @@ function nextMonth() {
       }
     }
     selectedDate = `${dayYear}-${String(dayMonth + 1).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
-    console.log(selectedDate);
     updateRight(selectedDate);
     document.querySelectorAll(".day").forEach(item => item.classList.remove("active"));
     dayElement.classList.add("active");

@@ -18,16 +18,16 @@ class UsersController < ApplicationController
 
   def make_member
     @user.update(role: "member")
-    redirect_to users_path, notice: "Пользователь #{@user.email} одобрен как участник"
+    redirect_to users_path, notice: "User #{@user.email} is approved as a member"
   end
   def make_admin
     @user.update(role: "admin")
-    redirect_to users_path, notice: "Пользователь #{@user.email} одобрен как админ"
+    redirect_to users_path, notice: "User #{@user.email} is approved as an admin"
   end
 
 
   private
-  
+
   def set_user
     @user = User.find(params[:id])
   end
